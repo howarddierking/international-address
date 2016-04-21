@@ -1,0 +1,32 @@
+{
+  "name": "international-address",
+  "version": "1.0.0",
+  "description": "Formats postal addresses for a specified region",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "node_modules/mocha/bin/mocha ./test --harmony_default_parameters",
+    "test-debug": "node_modules/mocha/bin/mocha debug ./test --harmony_default_parameters"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/howarddierking/international-address.git"
+  },
+  "keywords": [
+    "Address",
+    "International",
+    "Global"
+  ],
+  "author": "Howard Dierking",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/howarddierking/international-address/issues"
+  },
+  "homepage": "https://github.com/howarddierking/international-address#readme",
+  "devDependencies": {
+    "mocha": "^2.4.5",
+    "should": "^8.3.0"
+  },
+  "dependencies": {
+    "underscore": "^1.8.3"
+  }
+}
