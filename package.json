@@ -4,8 +4,8 @@
   "description": "Formats postal addresses for a specified region",
   "main": "src/index.js",
   "scripts": {
-    "test": "node_modules/mocha/bin/mocha ./test --harmony_default_parameters",
-    "test-debug": "node_modules/mocha/bin/mocha debug ./test --harmony_default_parameters"
+    "test": "node_modules/mocha/bin/mocha ./test",
+    "test-debug": "node_modules/mocha/bin/mocha debug ./test"
   },
   "repository": {
     "type": "git",
@@ -27,6 +27,6 @@
     "should": "^8.3.0"
   },
   "dependencies": {
-    "underscore": "^1.8.3"
+    "ramda": "^0.21.0"
   }
 }
