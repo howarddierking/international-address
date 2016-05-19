@@ -20,17 +20,13 @@ exports.validateRequired = R.curry(function(requiredFields, info){
 
 let second = R.nth(1);
 
-internal.isValid = R.complement(R.anyPass([R.isEmpty, R.isNil]));
-
-// internal.isValid = function(val){
-//   return !(R.isEmpty(val) || R.isNil(val));
-// };
+let isValid = R.complement(R.anyPass([R.isEmpty, R.isNil]));
 
 exports.trimVals = function(strings, ...values){
   let pairs = R.zip(strings, values);
   
   let writePairs = R.filter((val) => {
-    return internal.isValid(second(val));
+    return isValid(second(val));
   }, pairs);
 
   return R.reduce((acc, pair) => {
