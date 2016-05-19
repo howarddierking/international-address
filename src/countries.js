@@ -46,6 +46,10 @@ ${info.PostalCode} ${info.City} ${info.State}
 ${info.Country}`;
 };
 
+exports.formatters.brazil = formatting.formatAddress(
+  formatting.validateRequired(['Honorific', 'FirstName', 'SecondName', 'LastName', 'Address1', 'PostalCode', 'City', 'State']),
+  internal.writers.brazil);
+
 /*
 Bulgaria  
 [<Country>]
@@ -67,6 +71,10 @@ ${info.CompanyName}
 ${info.Honorific} ${info.FirstName} ${info.SecondName} ${info.LastName}`;
 };
 
+exports.formatters.bulgaria = formatting.formatAddress(
+  formatting.validateRequired(['State', 'PostalCode', 'City', 'Address1', 'Address2', 'Honorific', 'FirstName', 'SecondName', 'LastName']),
+  internal.writers.bulgaria);
+
 /*
 Canada
 (English format)
@@ -85,6 +93,10 @@ ${info.Address1}
 ${info.City}, ${info.Province} ${info.PostalCode}
 ${info.Country}`;
 };
+
+exports.formatters.canadaEnglish = formatting.formatAddress(
+  formatting.validateRequired(['Honorific', 'FirstName', 'LastName', 'Address1', 'City', 'Province', 'PostalCode']),
+  internal.writers.canadaEnglish);
 
 /*
 Canada
@@ -105,6 +117,10 @@ ${info.PostalCode}
 ${info.Country}`;
 };
 
+exports.formatters.canadaFrench = formatting.formatAddress(
+  formatting.validateRequired(['Honorific', 'FirstName', 'LastName', 'Address1', 'City', 'Province', 'PostalCode']),
+  internal.writers.canadaFrench);
+
 /*
 China 
 [<Country>]
@@ -119,6 +135,10 @@ ${info.Province} ${info.City}
 ${info.Address1}
 ${info.LastName} ${info.FirstName} ${info.Honorific}`;
 };
+
+exports.formatters.china = formatting.formatAddress(
+  formatting.validateRequired(['Province', 'City', 'Address1', 'LastName', 'FirstName', 'Honorific']),
+  internal.writers.china);
 
 /*
 Croatia/Serbia/ Slovenia (former Yugoslavia)  
@@ -141,6 +161,10 @@ ${info.State}
 ${info.Country}`;
 };
 
+exports.formatters.fmrYugoslavia = formatting.formatAddress(
+  formatting.validateRequired(['Honorific', 'FirstName', 'SecondName', 'LastName', 'Address1', 'Address2', 'PostalCode', 'City', 'State']),
+  internal.writers.fmrYugoslavia);
+
 /*
 Czech Republic  
 <Honorific> <FirstName> <SecondName> <LastName>
@@ -162,6 +186,10 @@ ${info.State}
 ${info.Country}`;
 };
 
+exports.formatters.czech = formatting.formatAddress(
+  formatting.validateRequired(['Honorific', 'FirstName', 'SecondName', 'LastName', 'Address1', 'Address2', 'PostalCode', 'City', 'State']),
+  internal.writers.czech);
+
 /*
 Denmark 
 [<Honorific> <Title>] <FirstName> [<SecondName>] <LastName>
@@ -181,6 +209,10 @@ ${info.Address2}
 ${info.CountryCode} ]${info.PostalCode} ${info.City}
 ${info.Country}`;
 };
+
+exports.formatters.denmark = formatting.formatAddress(
+  formatting.validateRequired(['FirstName', 'LastName', 'Address1', 'Address2', 'PostalCode', 'City']),
+  internal.writers.denmark);
 
 /*
 Finland 
@@ -202,6 +234,10 @@ ${info.PostalCode} ${info.City}
 ${info.Country}`;
 };
 
+exports.formatters.finland = formatting.formatAddress(
+  formatting.validateRequired(['FirstName', 'LastName', 'Address1', 'Address2', 'PostalCode', 'City']),
+  internal.writers.finland);
+
 /*
 France  
 <Honorific> <FirstName> <LastName>
@@ -220,6 +256,10 @@ ${info.Address2}
 ${info.PostalCode} ${info.City}
 ${info.Country}`;
 };
+
+exports.formatters.france = formatting.formatAddress(
+  formatting.validateRequired(['Honorific', 'FirstName', 'LastName', 'Address1', 'Address2', 'PostalCode', 'City']),
+  internal.writers.france);
 
 /*
 Germany 
@@ -241,6 +281,10 @@ ${info.Address2}
 ${info.CountryCode} ${info.PostalCode} ${info.City}`;
 };
 
+exports.formatters.germany = formatting.formatAddress(
+  formatting.validateRequired(['Honorific', 'FirstName', 'LastName', 'Address1', 'Address2', 'PostalCode', 'City']),
+  internal.writers.germany);
+
 /*
 Greece  
 [<Title>] <FirstName> [<SecondName>] <LastName>
@@ -260,6 +304,10 @@ ${info.Address2}
 ${info.PostalCode} ${info.City}
 ${info.Country}`;
 };
+
+exports.formatters.greece = formatting.formatAddress(
+  formatting.validateRequired(['FirstName', 'LastName', 'CompanyName', 'Address1', 'Address2', 'PostalCode', 'City']),
+  internal.writers.greece);
 
 /*
 Hungary
@@ -283,6 +331,10 @@ ${info.State}
 ${info.Country}`;
 };
 
+exports.formatters.hungaryTypical = formatting.formatAddress(
+  formatting.validateRequired(['Honorific', 'LastName', 'FirstName', 'SecondName', 'PostalCode', 'City', 'Address1', 'Address2', 'State']),
+  internal.writers.hungaryTypical);
+
 /*
 Hungary
 (Official postal standard)
@@ -295,8 +347,17 @@ Hungary
 */
 
 internal.writers.hungaryOfficial = function(info){
-  return formatting.trimVals``;
+  return formatting.trimVals`${info.Honorific} ${info.LastName} ${info.FirstName}
+${info.City}
+${info.Address1}
+${info.PostalCode}
+${info.State}
+${info.Country}`;
 };
+
+exports.formatters.hungaryOfficial = formatting.formatAddress(
+  formatting.validateRequired(['Honorific', 'LastName', 'FirstName', 'City', 'Address1', 'PostalCode', 'State']),
+  internal.writers.hungaryOfficial);
 
 /*
 Italy 
@@ -318,6 +379,10 @@ ${info.CountryAbbreviation} ${info.PostalCode} ${info.City} ${info.Province}
 ${info.Country}`;
 };
 
+exports.formatters.italy = formatting.formatAddress(
+  formatting.validateRequired(['Title', 'FirstName', 'LastName', 'Address', 'PostalCode', 'City', 'Province']),
+  internal.writers.italy);
+
 /*
 Japan 
 [<Country>]
@@ -335,6 +400,10 @@ ${info.CompanyName}
 ${info.LastName} ${info.FirstName} ${info.Honorific}`;
 };
 
+exports.formatters.japan = formatting.formatAddress(
+  formatting.validateRequired(['PostalCode', 'Prefecture', 'City', 'Address', 'CompanyName', 'LastName', 'FirstName', 'Honorific']),
+  internal.writers.japan);
+
 /*
 Korea 
 [<Country>]
@@ -348,35 +417,40 @@ Note: Do means Province, Si means City, Dong means Street, Block, or Village, an
 internal.writers.korea = function(info){
   return formatting.trimVals`${info.Country}
 ${info.PostalCode}
-${info.Do} ${info.Si} ${info.Dong} ${info.Gu} ${info.Address}#>
+${info.Do} ${info.Si} ${info.Dong} ${info.Gu} ${info.Address} #>
 ${info.CompanyName}
 ${info.LastName} ${info.FirstName} ${info.Honorific}`;
 };
 
+exports.formatters.korea = formatting.formatAddress(
+  formatting.validateRequired(['PostalCode', 'Do', 'Si', 'Dong', 'Gu', 'Address', 'CompanyName', 'LastName', 'FirstName', 'Honorific']),
+  internal.writers.korea);
+
 /*
 Latin America
 (Typical address used in Spanish speaking countries)
-<Title/Honorific> <FirstName> <SecondName> <FirstLastName>
+<Honorific> <FirstName> <SecondName> <FirstLastName>
 <SecondLastName> 
 [<CompanyName>]
 <Address>
 <PostalCode> <City>
-<State or Province>
+<Province>
 [<Country>]
 */
 
 internal.writers.latinAmericaTypical = function(info){
-  let title = info.Title || info.Honorific;
-  let prov = info.State || info.Province;
-
-  return formatting.trimVals`${title} ${info.FirstName} ${info.SecondName} ${info.FirstLastName}
+  return formatting.trimVals`${info.Honorific} ${info.FirstName} ${info.SecondName} ${info.FirstLastName}
 ${info.SecondLastName} 
 ${info.CompanyName}
 ${info.Address}
 ${info.PostalCode} ${info.City}
-${prov}
+${info.Province}
 ${info.Country}`;
 };
+
+exports.formatters.latinAmericaTypical = formatting.formatAddress(
+  formatting.validateRequired(['Honorific', 'FirstName', 'SecondName', 'FirstLastName', 'SecondLastName', 'Address', 'PostalCode', 'City', 'Province']),
+  internal.writers.latinAmericaTypical);
 
 /*
 Malaysia  
@@ -396,6 +470,10 @@ ${info.Address2}
 ${info.PostalCode} ${info.City}
 ${info.State} ${info.Country}`;
 };
+
+exports.formatters.malaysia = formatting.formatAddress(
+  formatting.validateRequired(['Honorific', 'FirstName', 'SecondName', 'LastName', 'Address1', 'Address2', 'PostalCode', 'City', 'State']),
+  internal.writers.malaysia);
 
 /*
 Netherlands 
@@ -424,6 +502,10 @@ ${info.PostalCode} ${info.City}
 ${info.Country}`;
 };
 
+exports.formatters.netherlands = formatting.formatAddress(
+  formatting.validateRequired(['Title', 'FirstName', 'SecondName', 'LastName', 'Address1', 'Address2', 'PostalCode', 'City']),
+  internal.writers.netherlands);
+
 /*
 Norway
 (Postal address for personal correspondence)
@@ -440,6 +522,10 @@ ${info.Address1}
 ${info.PostalCode} ${info.City}
 ${info.Country}`;
 };
+
+exports.formatters.norwayPersonal = formatting.formatAddress(
+  formatting.validateRequired(['FirstName', 'LastName', 'Address1', 'PostalCode', 'City']),
+  internal.writers.norwayPersonal);
 
 /*
 Norway
@@ -462,6 +548,10 @@ ${info.PostalCode} ${info.City}
 ${info.Country}`;
 };
 
+exports.formatters.norwayBusiness = formatting.formatAddress(
+  formatting.validateRequired(['CompanyName', 'Address1', 'FirstName', 'LastName', 'Address2', 'PostalCode', 'City']),
+  internal.writers.norwayBusiness);
+
 /*
 Poland  
 <Honorific> <FirstName> <SecondName> <LastName>
@@ -482,6 +572,10 @@ ${info.PostalCode} ${info.City}
 ${info.State}
 ${info.Country}`;
 };
+
+exports.formatters.poland = formatting.formatAddress(
+  formatting.validateRequired(['Honorific', 'FirstName', 'SecondName', 'LastName', 'Address1', 'Address2', 'PostalCode', 'City', 'State']),
+  internal.writers.poland);
 
 /*
 Portugal  
@@ -505,6 +599,10 @@ ${info.PostalCode}
 ${info.Country}`;
 };
 
+exports.formatters.portugal = formatting.formatAddress(
+  formatting.validateRequired(['Honorific', 'FirstName', 'SecondName', 'LastName', 'Address1', 'Address2', 'City', 'PostalCode']),
+  internal.writers.portugal);
+
 /*
 Romania 
 <Honorific> <FirstName> <SecondName> <LastName>
@@ -525,6 +623,10 @@ ${info.PostalCode} ${info.City}
 ${info.State}
 ${info.Country}`;
 };
+
+exports.formatters.romania = formatting.formatAddress(
+  formatting.validateRequired(['Honorific', 'FirstName', 'SecondName', 'LastName', 'Address1', 'Address2', 'PostalCode', 'City', 'State']),
+  internal.writers.romania);
 
 /*
 Russia  
@@ -550,6 +652,10 @@ ${info.LastName}
 ${info.FirstName} ${info.SecondName}`;
 };
 
+exports.formatters.russia = formatting.formatAddress(
+  formatting.validateRequired(['PostalCode', 'City', 'Address1', 'Address2', 'LastName', 'FirstName', 'SecondName']),
+  internal.writers.russia);
+
 /*
 Spain 
 <Honorific> <FirstName> <SecondName> <FirstLastName> 
@@ -569,6 +675,10 @@ ${info.PostalCode} ${info.City}
 ${info.Country}`;
 };
 
+exports.formatters.spain = formatting.formatAddress(
+  formatting.validateRequired(['Honorific', 'FirstName', 'SecondName', 'FirstLastName', 'SecondLastName', 'Address', 'PostalCode', 'City']),
+  internal.writers.spain);
+
 /*
 Sweden
 Postal address for personal correspondence  
@@ -580,11 +690,15 @@ Note: There are two spaces between <PostalCode> and <City>. The name of the city
 */
 
 internal.writers.swedenPersonal = function(info){
-  return formatting.trimVals`${info.Job}Title>] ${info.FirstName} ${info.LastName}
+  return formatting.trimVals`${info.JobTitle} ${info.FirstName} ${info.LastName}
 ${info.Address1}
 ${info.PostalCode} ${info.City}
 ${info.Country}`;
 };
+
+exports.formatters.swedenPersonal = formatting.formatAddress(
+  formatting.validateRequired(['FirstName', 'LastName', 'Address1', 'PostalCode', 'City']),
+  internal.writers.swedenPersonal);
 
 /*
 Sweden
@@ -607,6 +721,10 @@ ${info.PostalCode} ${info.City}
 ${info.Country}`;
 };
 
+exports.formatters.swedenBusiness = formatting.formatAddress(
+  formatting.validateRequired(['CompanyName', 'FirstName', 'LastName', 'Address1', 'Address2', 'PostalCode', 'City']),
+  internal.writers.swedenBusiness);
+
 /*
 Switzerland 
 <Honorific> <FirstName> <LastName>
@@ -621,6 +739,10 @@ ${info.Address1}
 ${info.PostalCode} ${info.City}
 ${info.Country}`;
 };
+
+exports.formatters.switzerland = formatting.formatAddress(
+  formatting.validateRequired(['Honorific', 'FirstName', 'LastName', 'Address1', 'PostalCode', 'City']),
+  internal.writers.switzerland);
 
 /*
 Turkey  
@@ -641,6 +763,10 @@ ${info.PostalCode}, ${info.City}
 ${info.Country}`;
 };
 
+exports.formatters.turkey = formatting.formatAddress(
+  formatting.validateRequired(['Honorific', 'FirstName', 'SecondName', 'LastName', 'Address1', 'Address2', 'PostalCode', 'City']),
+  internal.writers.turkey);
+
 /*
 United States 
 <Honorific> <FirstName> <SecondName> <LastName>
@@ -660,3 +786,7 @@ ${info.Address2}
 ${info.City}, ${info.State} ${info.PostalCode}
 ${info.Country}`;
 };
+
+exports.formatters.unitedStates = formatting.formatAddress(
+  formatting.validateRequired(['Honorific', 'FirstName', 'SecondName', 'LastName', 'Address1', 'Address2', 'City', 'State', 'PostalCode']),
+  internal.writers.unitedStates);
