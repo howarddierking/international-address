@@ -1,7 +1,7 @@
 'use strict';
 
 let should = require('should');
-let countries = require('../src/countries');
+let countries = require('../src/countryFormatters');
 
 describe('countries', () => {
 

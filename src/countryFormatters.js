@@ -141,7 +141,7 @@ exports.formatters.china = formatting.formatAddress(
   internal.writers.china);
 
 /*
-Croatia/Serbia/ Slovenia (former Yugoslavia)  
+Croatia/Serbia/Slovenia (former Yugoslavia)  
 <Honorific> <FirstName> <SecondName> <LastName>
 [<CompanyName>]
 <Address1>
@@ -437,6 +437,8 @@ Latin America
 <Province>
 [<Country>]
 */
+
+// mapping information based on https://en.wikipedia.org/wiki/Latin_America#Subregions_and_countries
 
 internal.writers.latinAmericaTypical = function(info){
   return formatting.trimVals`${info.Honorific} ${info.FirstName} ${info.SecondName} ${info.FirstLastName}
