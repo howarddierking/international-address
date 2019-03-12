@@ -2,7 +2,7 @@
 
 let cf = require('./countryFormatters');
 let locales = require('./locales');
-let R = require('Ramda');
+let R = require('ramda');
 
 let caseInsensitiveComparer = R.curry(function(x, y){
   return x.toUpperCase() === y.toUpperCase();
@@ -21,6 +21,6 @@ exports.formatter = function(defaultFormatter, locale){
     defaultFormatter = cf.formatters.unitedStates;
   }
 
-  let v = propBy(caseInsensitiveComparer(locale), locales.formatters); 
+  let v = propBy(caseInsensitiveComparer(locale), locales.formatters);
   return R.defaultTo(defaultFormatter, v);
 };

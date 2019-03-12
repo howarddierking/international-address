@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/howarddierking/international-address#readme",
   "devDependencies": {
-    "mocha": "^2.4.5",
+    "mocha": "^6.0.2",
     "should": "^8.3.0"
   },
   "dependencies": {
