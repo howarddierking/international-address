@@ -10,7 +10,7 @@ let caseInsensitiveComparer = R.curry(function(x, y){
 
 // (k -> Boolean) -> {k: v} -> v | undefined
 let propBy = function(pred, object){
-  let w = R.wrap(pred, (fn, val, key) => pred(key));
+  let w = (val, key) => pred(key);
   let t = R.pickBy(w, object);
   return R.nth(0, R.values(t));
 };
