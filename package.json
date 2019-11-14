@@ -1,6 +1,6 @@
 {
   "name": "international-postal-address",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Formats postal addresses for a specified region",
   "main": "src/index.js",
   "scripts": {
